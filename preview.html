@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bushido Gdynia - Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-dark: #1a1a1a;
+      --primary-light: #ffffff;
+      --accent-red: #d32f2f;
+      --accent-gray: #757575;
+      --border-gray: #e0e0e0;
+      --font-main: 'Raleway', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-main);
+      color: var(--primary-dark);
+      background-color: var(--primary-light);
+      line-height: 1.6;
+    }
+
+    /* ========================================
+       HEADER & NAVIGATION
+       ======================================== */
+
+    .header {
+      background-color: var(--primary-dark);
+      color: var(--primary-light);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar {
+      width: 100%;
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .logo-icon {
+      font-size: 1.8rem;
+    }
+
+    .nav-menu {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-link {
+      color: var(--primary-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-red);
+    }
+
+    .nav-phone {
+      background-color: var(--accent-red);
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      color: var(--primary-light);
+      text-decoration: none;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+
+    .nav-phone:hover {
+      background-color: #b71c1c;
+    }
+
+    /* ========================================
+       HERO SECTION
+       ======================================== */
+
+    .hero {
+      background: linear-gradient(135deg, var(--primary-dark) 0%, #2a2a2a 100%);
+      color: var(--primary-light);
+      padding: 8rem 2rem;
+      text-align: center;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+    }
+
+    .hero-subtitle {
+      font-size: 1.8rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      color: var(--accent-red);
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: 300;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .cta-button {
+      padding: 1rem 2rem;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      display: inline-block;
+    }
+
+    .cta-primary {
+      background-color: var(--accent-red);
+      color: var(--primary-light);
+    }
+
+    .cta-primary:hover {
+      background-color: #b71c1c;
+      transform: translateY(-2px);
+    }
+
+    .cta-secondary {
+      background-color: transparent;
+      color: var(--primary-light);
+      border: 2px solid var(--primary-light);
+    }
+
+    .cta-secondary:hover {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* ========================================
+       CONTAINER & SECTIONS
+       ======================================== */
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      letter-spacing: 1px;
+      color: var(--primary-dark);
+    }
+
+    /* ========================================
+       ABOUT SECTION
+       ======================================== */
+
+    .about {
+      padding: 5rem 2rem;
+      background-color: #fafafa;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .about-text h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--primary-dark);
+    }
+
+    .about-text p {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+      color: var(--accent-gray);
+    }
+
+    .about-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      background-color: var(--primary-light);
+      padding: 2rem;
+      border-radius: 4px;
+      text-align: center;
+      border-left: 4px solid var(--accent-red);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .value-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .value-card h4 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-card p {
+      color: var(--accent-gray);
+      font-size: 0.95rem;
+    }
+
+    /* ========================================
+       CLASSES SECTION
+       ======================================== */
+
+    .classes {
+      padding: 5rem 2rem;
+    }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .class-card {
+      background-color: #fafafa;
+      padding: 2rem;
+      border-radius: 4px;
+      border-top: 4px solid var(--accent-red);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .class-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    .class-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .class-level {
+      color: var(--accent-red);
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .class-features {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .class-features li {
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: var(--accent-gray);
+    }
+
+    .class-features li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: var(--accent-red);
+      font-weight: bold;
+    }
+
+    .class-cta {
+      display: inline-block;
+      background-color: var(--primary-dark);
+      color: var(--primary-light);
+      padding: 0.7rem 1.5rem;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      font-weight: 600;
+    }
+
+    .class-cta:hover {
+      background-color: var(--accent-red);
+    }
+
+    .first-training {
+      background-color: var(--primary-dark);
+      color: var(--primary-light);
+      padding: 2.5rem;
+      border-radius: 4px;
+      text-align: center;
+    }
+
+    .first-training h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .first-training ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .first-training li {
+      padding-left: 2rem;
+      position: relative;
+    }
+
+    .first-training li:before {
+      content: "🥋";
+      position: absolute;
+      left: 0;
+    }
+
+    /* ========================================
+       CONTACT SECTION
+       ======================================== */
+
+    .contact {
+      padding: 5rem 2rem;
+      background-color: #fafafa;
+    }
+
+    .contact-info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .contact-details {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .detail-item h4 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .detail-item p {
+      color: var(--accent-gray);
+      font-size: 1rem;
+    }
+
+    .detail-item a {
+      color: var(--accent-red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .map-container {
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      background: linear-gradient(135deg, #e0e0e0, #f5f5f5);
+      height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-gray);
+      font-size: 1.1rem;
+    }
+
+    .form-container {
+      background-color: var(--primary-light);
+      padding: 2.5rem;
+      border-radius: 4px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-container h3 {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      color: var(--primary-dark);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--primary-dark);
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 0.8rem;
+      border: 1px solid var(--border-gray);
+      border-radius: 4px;
+      font-family: var(--font-main);
+      font-size: 1rem;
+    }
+
+    .submit-btn {
+      background-color: var(--accent-red);
+      color: var(--primary-light);
+      padding: 1rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      background-color: #b71c1c;
+    }
+
+    /* ========================================
+       FOOTER
+       ======================================== */
+
+    .footer {
+      background-color: var(--primary-dark);
+      color: var(--primary-light);
+      padding: 3rem 2rem 1rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-section h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .footer-section p {
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-section a {
+      color: var(--accent-red);
+      text-decoration: none;
+    }
+
+    .footer-section ul {
+      list-style: none;
+    }
+
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.9rem;
+    }
+
+    /* ========================================
+       RESPONSIVE DESIGN
+       ======================================== */
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 2.5rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+      }
+
+      .hero {
+        padding: 4rem 2rem;
+        min-height: 50vh;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .cta-button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+
+      .about-values {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-info {
+        grid-template-columns: 1fr;
+      }
+
+      .first-training ul {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .nav-logo {
+        font-size: 1.1rem;
+      }
+
+      .class-card {
+        padding: 1.5rem;
+      }
+
+      .form-container {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Nawigacja -->
+  <header class="header">
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-logo">
+          <span class="logo-icon">🥋</span>
+          <span class="logo-text">Bushido Gdynia</span>
+        </div>
+        <div class="nav-menu">
+          <a href="#hero" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">O nas</a>
+          <a href="#classes" class="nav-link">Grupy</a>
+          <a href="#contact" class="nav-link">Kontakt</a>
+          <a href="tel:795579442" class="nav-phone">📞 795 579 442</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Bushido Gdynia</h1>
+      <p class="hero-subtitle">Karate-do Shotokan</p>
+      <p class="hero-description">Rozwijaj samokontrolę, szacunek i sprawność fizyczną</p>
+      <div class="hero-cta">
+        <a href="tel:795579442" class="cta-button cta-primary">Zadzwoń teraz</a>
+        <a href="#classes" class="cta-button cta-secondary">Poznaj naszą ofertę</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- O nas -->
+  <section id="about" class="about">
+    <div class="container">
+      <h2 class="section-title">O nas</h2>
+      <div class="about-content">
+        <div class="about-text">
+          <h3>Filozofia Bushido</h3>
+          <p>
+            Bushido to droga wojownika, opierająca się na pięciu fundamentalnych wartościach: 
+            <strong>uczciwości, odwadze, współczuciu, honorze i lojalności</strong>.
+          </p>
+          <p>
+            W naszym klubie uczymy Karate-do Shotokan – jednego z najpopularniejszych stylów karate 
+            na świecie, łączącego technikę, rozwinięcie mentalne i fizykalne doskonałość.
+          </p>
+        </div>
+        <div class="about-values">
+          <div class="value-card">
+            <h4>🎯 Samokontroła</h4>
+            <p>Panowanie nad ciałem i umysłem</p>
+          </div>
+          <div class="value-card">
+            <h4>🤝 Szacunek</h4>
+            <p>Dla siebie, trenera i kolegów</p>
+          </div>
+          <div class="value-card">
+            <h4>💪 Sprawność</h4>
+            <p>Rozwój fizyczny i technika</p>
+          </div>
+          <div class="value-card">
+            <h4>🧠 Mentalność</h4>
+            <p>Wytrzymałość i determinacja</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Grupy / Oferta -->
+  <section id="classes" class="classes">
+    <div class="container">
+      <h2 class="section-title">Nasze grupy</h2>
+      <div class="classes-grid">
+        <div class="class-card">
+          <h3>👧 Dzieci (4-7 lat)</h3>
+          <p class="class-level">Początkujący</p>
+          <ul class="class-features">
+            <li>Zabawa i nauka podstaw</li>
+            <li>Rozwój koordynacji</li>
+            <li>Dyscyplina i szacunek</li>
+            <li>Zajęcia 2x tygodniowo</li>
+          </ul>
+          <a href="tel:795579442" class="class-cta">Zapytaj o grupę</a>
+        </div>
+
+        <div class="class-card">
+          <h3>👦 Młodzież (8-14 lat)</h3>
+          <p class="class-level">Początkujący + Zaawansowani</p>
+          <ul class="class-features">
+            <li>Technika i formy (kata)</li>
+            <li>Walka (kumite)</li>
+            <li>Przygotowanie do egzaminów</li>
+            <li>Zajęcia 2-3x tygodniowo</li>
+          </ul>
+          <a href="tel:795579442" class="class-cta">Zapytaj o grupę</a>
+        </div>
+
+        <div class="class-card">
+          <h3>👨 Dorośli (15+)</h3>
+          <p class="class-level">Wszystkie poziomy</p>
+          <ul class="class-features">
+            <li>Zaawansowana technika</li>
+            <li>Styl i efektywność</li>
+            <li>Integracja i przyjaźń</li>
+            <li>Zajęcia 2-3x tygodniowo</li>
+          </ul>
+          <a href="tel:795579442" class="class-cta">Zapytaj o grupę</a>
+        </div>
+      </div>
+
+      <div class="first-training">
+        <h3>🥋 Na pierwszy trening zabrać:</h3>
+        <ul>
+          <li><strong>Gi (kimono karate)</strong> – możemy pomóc w wyborze</li>
+          <li><strong>Czysty ręcznik</strong></li>
+          <li><strong>Buty do sali</strong> (zdejmujesz na macie)</li>
+          <li><strong>Wodę do picia</strong></li>
+          <li><strong>Otwartą głowę i chęć nauki!</strong></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontakt i Dojazd -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2 class="section-title">Kontakt i Dojazd</h2>
+      
+      <div class="contact-info">
+        <div class="contact-details">
+          <div class="detail-item">
+            <h4>📍 Adres</h4>
+            <p>ul. Słupecka 6<br>81-316 Gdynia</p>
+          </div>
+          <div class="detail-item">
+            <h4>📞 Telefon</h4>
+            <p><a href="tel:795579442">795 579 442</a></p>
+          </div>
+          <div class="detail-item">
+            <h4>📘 Facebook</h4>
+            <p><a href="https://www.facebook.com/BushidoGdynia?locale=pl_PL" target="_blank">Bushido Gdynia</a></p>
+          </div>
+        </div>
+
+        <div class="map-container">
+          📍 Google Maps - ul. Słupecka 6, Gdynia
+        </div>
+      </div>
+
+      <!-- Formularz Kontaktowy -->
+      <div class="form-container">
+        <h3>Wyślij nam wiadomość</h3>
+        <form class="contact-form">
+          <div class="form-group">
+            <label for="name">Imię i nazwisko *</label>
+            <input type="text" id="name" name="name" placeholder="Jan Kowalski" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" placeholder="jan@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Telefon</label>
+            <input type="tel" id="phone" name="phone" placeholder="123 456 789">
+          </div>
+
+          <div class="form-group">
+            <label for="group">Zainteresowana grupa</label>
+            <select id="group" name="group">
+              <option value="">-- Wybierz grupę --</option>
+              <option value="dzieci">Dzieci (4-7 lat)</option>
+              <option value="mlodzież">Młodzież (8-14 lat)</option>
+              <option value="dorośli">Dorośli (15+)</option>
+              <option value="inne">Inne pytanie</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Wiadomość *</label>
+            <textarea id="message" name="message" rows="6" placeholder="Napisz swoją wiadomość..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Wyślij wiadomość</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Bushido Gdynia</h4>
+        <p>ul. Słupecka 6, 81-316 Gdynia</p>
+        <p>📞 <a href="tel:795579442">795 579 442</a></p>
+      </div>
+      <div class="footer-section">
+        <h4>Szybkie linki</h4>
+        <ul>
+          <li><a href="#about">O nas</a></li>
+          <li><a href="#classes">Grupy</a></li>
+          <li><a href="#contact">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Obserwaj nas</h4>
+        <a href="https://www.facebook.com/BushidoGdynia?locale=pl_PL" target="_blank">Facebook</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Bushido Gdynia. Wszystkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
